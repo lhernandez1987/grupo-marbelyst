@@ -57,10 +57,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <div
       onClick={() => onOpenDetails(product)}
-      className="group relative bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer hover:-translate-y-1"
+      className="group relative bg-white rounded-2xl sm:rounded-3xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer hover:-translate-y-1"
     >
-      {/* Product Image & Badges */}
-      <div className="relative aspect-4/3 overflow-hidden bg-slate-100">
+      {/* Product Image & Badges (Vertical 3:4 fashion ratio) */}
+      <div className="relative aspect-3/4 overflow-hidden bg-slate-100">
         <img
           src={product.image}
           alt={product.name}
@@ -69,19 +69,19 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         />
 
         {/* Top Badges */}
-        <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5 items-start">
+        <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 flex flex-col gap-1 items-start">
           {getTagBadge()}
         </div>
 
         {/* Direct factory savings badge */}
-        <div className="absolute top-3 right-3 z-10">
-          <span className="px-2.5 py-1 rounded-full text-[11px] font-black text-white bg-slate-900/80 backdrop-blur-xs">
+        <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10">
+          <span className="px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-[9px] sm:text-[11px] font-black text-white bg-slate-900/80 backdrop-blur-xs">
             -{discountPercent}% Mayor
           </span>
         </div>
 
         {/* Hover Quick Action */}
-        <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+        <div className="hidden sm:flex absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity items-center justify-center gap-3">
           <span className="px-4 py-2 rounded-xl bg-white/95 text-slate-900 text-xs font-bold shadow-lg flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
             <Eye className="w-4 h-4 text-blue-600" />
             <span>Ver Ficha Técnica</span>
@@ -90,81 +90,72 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       </div>
 
       {/* Product Body */}
-      <div className="p-5 flex-1 flex flex-col justify-between">
+      <div className="p-3 sm:p-5 flex-1 flex flex-col justify-between">
         <div>
-          <div className="text-[11px] font-bold text-blue-600 uppercase tracking-wider mb-1">
+          <div className="text-[9px] sm:text-[11px] font-bold text-blue-600 uppercase tracking-wider mb-0.5 sm:mb-1 truncate">
             {product.categoryLabel}
           </div>
 
-          <h3 className="text-base font-bold text-slate-900 leading-snug mb-2 group-hover:text-blue-600 transition-colors line-clamp-1">
+          <h3 className="text-xs sm:text-base font-bold text-slate-900 leading-snug mb-1 sm:mb-2 group-hover:text-blue-600 transition-colors line-clamp-1">
             {product.name}
           </h3>
 
-          <p className="text-xs text-slate-500 mb-4 line-clamp-2">
-            {product.fabric} • {product.recommendedTechnique}
+          <p className="text-[10px] sm:text-xs text-slate-500 mb-2 sm:mb-4 line-clamp-1 sm:line-clamp-2">
+            {product.fabric}
           </p>
         </div>
 
         {/* Double Pricing Card Requirement */}
-        <div className="bg-slate-50 rounded-2xl p-3 border border-slate-100 mb-4">
-          <div className="flex items-center justify-between text-xs mb-1.5">
-            <span className="text-slate-500 font-medium">Precio Detal:</span>
-            <span className="font-bold text-slate-800 text-sm">
+        <div className="bg-slate-50 rounded-xl sm:rounded-2xl p-2 sm:p-3 border border-slate-100 mb-2 sm:mb-4">
+          <div className="flex items-center justify-between text-[10px] sm:text-xs mb-1">
+            <span className="text-slate-500 font-medium">Detal:</span>
+            <span className="font-bold text-slate-800 text-xs sm:text-sm">
               ${product.detalPrice.toFixed(2)}
             </span>
           </div>
 
-          <div className="flex items-center justify-between pt-1.5 border-t border-slate-200/80">
+          <div className="flex items-center justify-between pt-1 border-t border-slate-200/80">
             <div>
-              <span className="font-extrabold text-fuchsia-600 text-xs block">
-                Precio Mayorista:
+              <span className="font-extrabold text-fuchsia-600 text-[10px] sm:text-xs block leading-tight">
+                Mayor:
               </span>
-              <span className="text-[10px] text-slate-400 font-medium">
-                (a partir de {product.minWholesaleQty} unds)
+              <span className="text-[8px] sm:text-[10px] text-slate-400 font-medium block">
+                (+{product.minWholesaleQty} unds)
               </span>
             </div>
-            <span className="font-black text-fuchsia-600 text-base">
+            <span className="font-black text-fuchsia-600 text-sm sm:text-base">
               ${product.wholesalePrice.toFixed(2)}
             </span>
           </div>
         </div>
 
-        {/* Color swatches selector */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-1.5">
-            <span className="text-[10px] font-bold text-slate-400 uppercase">Color:</span>
+        {/* Color swatches & sizes preview (Compact on mobile) */}
+        <div className="hidden xs:flex items-center justify-between mb-2 sm:mb-4">
+          <div className="flex items-center gap-1">
             <div className="flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
-              {product.colors.slice(0, 4).map((c) => (
+              {product.colors.slice(0, 3).map((c) => (
                 <button
                   key={c.name}
                   onClick={() => setSelectedColor(c)}
                   title={c.name}
-                  className={`w-5 h-5 rounded-full border-2 transition-transform cursor-pointer ${
-                    selectedColor.name === c.name ? 'scale-125 border-slate-900 shadow-xs' : 'border-slate-200'
+                  className={`w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 rounded-full border transition-transform cursor-pointer ${
+                    selectedColor.name === c.name ? 'scale-125 border-slate-900' : 'border-slate-200'
                   }`}
                   style={{ backgroundColor: c.hex }}
                 />
               ))}
-              {product.colors.length > 4 && (
-                <span className="text-[10px] font-bold text-slate-400">
-                  +{product.colors.length - 4}
-                </span>
-              )}
             </div>
           </div>
 
           {/* Sizes preview */}
-          <div className="flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
+          <div className="flex items-center gap-0.5 sm:gap-1" onClick={(e) => e.stopPropagation()}>
             {product.sizes.slice(0, 3).map((s) => (
-              <button
+              <span
                 key={s}
-                onClick={() => setSelectedSize(s)}
-                className={`text-[10px] font-bold px-1.5 py-0.5 rounded cursor-pointer ${
-                  selectedSize === s ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                }`}
+                className="text-[9px] sm:text-[10px] font-bold px-1 py-0.5 rounded bg-slate-100 text-slate-600"
               >
                 {s}
-              </button>
+              </span>
             ))}
           </div>
         </div>
@@ -172,21 +163,21 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         {/* Add to Cart Button */}
         <button
           onClick={handleQuickAdd}
-          className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs ${
+          className={`w-full py-2 sm:py-2.5 px-2 sm:px-4 rounded-xl text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs active:scale-95 ${
             isAdded
               ? 'bg-emerald-600 text-white'
-              : 'bg-slate-900 hover:bg-blue-600 text-white active:scale-95'
+              : 'bg-slate-900 hover:bg-blue-600 text-white'
           }`}
         >
           {isAdded ? (
             <>
-              <Check className="w-4 h-4" />
-              <span>¡Agregado al Carrito!</span>
+              <Check className="w-3.5 h-3.5" />
+              <span>¡Agregado!</span>
             </>
           ) : (
             <>
-              <ShoppingBag className="w-4 h-4" />
-              <span>Agregar al Carrito</span>
+              <ShoppingBag className="w-3.5 h-3.5" />
+              <span>Agregar</span>
             </>
           )}
         </button>

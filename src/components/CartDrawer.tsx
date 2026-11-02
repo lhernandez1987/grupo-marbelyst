@@ -230,7 +230,7 @@ Por favor coordinar método de pago y tiempo de despacho a mi ciudad.`;
 
         {/* Footer actions */}
         {items.length > 0 && (
-          <div className="p-5 border-t border-slate-200 bg-slate-50 space-y-3">
+          <div className="p-4 sm:p-5 border-t border-slate-200 bg-slate-50 space-y-3 pb-8 sm:pb-5">
             <div className="space-y-1 text-xs">
               <div className="flex justify-between text-slate-600">
                 <span>Subtotal Detal:</span>
@@ -250,7 +250,7 @@ Por favor coordinar método de pago y tiempo de despacho a mi ciudad.`;
 
             <button
               onClick={handleCheckoutWhatsApp}
-              className="w-full py-3.5 px-4 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+              className="w-full py-3.5 px-4 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md active:scale-98"
             >
               <MessageCircle className="w-5 h-5" />
               <span>Enviar Pedido a WhatsApp</span>

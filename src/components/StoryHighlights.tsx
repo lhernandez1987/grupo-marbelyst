@@ -161,18 +161,18 @@ export const StoryHighlights: React.FC = () => {
           </a>
         </div>
 
-        {/* Story Circles Strip */}
-        <div className="flex items-center gap-4 sm:gap-6 overflow-x-auto pb-2 scrollbar-none">
+        {/* Story Circles Strip (Touch-friendly and edge-to-edge on mobile) */}
+        <div className="flex items-center gap-3 sm:gap-6 overflow-x-auto pb-2 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0 snap-x">
           {STORY_HIGHLIGHTS.map((item) => (
             <button
               key={item.id}
               onClick={() => openStory(item)}
-              className="flex flex-col items-center gap-2 shrink-0 group cursor-pointer focus:outline-hidden"
+              className="flex flex-col items-center gap-1.5 sm:gap-2 shrink-0 group cursor-pointer focus:outline-hidden snap-start active:scale-95 transition-transform"
             >
               {/* Vibrant Marbelyst gradient ring (Magenta, Yellow, Blue, Red) */}
               <div className="p-0.5 rounded-full bg-linear-to-tr from-[#EAB308] via-[#EF4444] to-[#D946EF] group-hover:from-[#2563EB] group-hover:to-[#D946EF] transition-all transform group-hover:scale-105 shadow-sm">
                 <div className="p-0.5 bg-white rounded-full">
-                  <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full overflow-hidden bg-slate-100">
+                  <div className="w-15 h-15 sm:w-18 sm:h-18 rounded-full overflow-hidden bg-slate-100">
                     <img
                       src={item.coverImage}
                       alt={item.title}

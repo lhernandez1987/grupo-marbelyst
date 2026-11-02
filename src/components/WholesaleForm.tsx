@@ -148,20 +148,20 @@ Por favor confirmar disponibilidad de telas y fecha de entrega.`;
         </div>
 
         {/* Main Grid: Form + Live Simulator Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           {/* Left Form: Inputs (7 Cols) */}
-          <div className="lg:col-span-7 bg-slate-800/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-slate-700/80 shadow-2xl">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="lg:col-span-7 bg-slate-800/90 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-slate-700/80 shadow-2xl">
+            <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
               {/* Step 1: Prenda y Cantidad */}
               <div>
-                <h3 className="text-sm font-bold text-yellow-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+                <h3 className="text-xs sm:text-sm font-bold text-yellow-400 uppercase tracking-wider mb-3 flex items-center gap-2">
                   <span className="w-5 h-5 rounded-full bg-yellow-400 text-slate-900 text-xs font-black flex items-center justify-center">
                     1
                   </span>
                   Prenda y Volumen de Producción
                 </h3>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
                       Tipo de Prenda / Base:
@@ -169,7 +169,7 @@ Por favor confirmar disponibilidad de telas y fecha de entrega.`;
                     <select
                       value={formData.productType}
                       onChange={(e) => setFormData({ ...formData, productType: e.target.value })}
-                      className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-hidden focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                      className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-base sm:text-sm text-white focus:outline-hidden focus:ring-2 focus:ring-blue-500 cursor-pointer"
                     >
                       {productOptions.map((opt) => (
                         <option key={opt.id} value={opt.id}>
@@ -188,7 +188,7 @@ Por favor confirmar disponibilidad de telas y fecha de entrega.`;
                         {formData.quantity} piezas
                       </span>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3">
                       <input
                         type="range"
                         min="20"
@@ -203,29 +203,31 @@ Por favor confirmar disponibilidad de telas y fecha de entrega.`;
                         min="1"
                         value={formData.quantity}
                         onChange={(e) => setFormData({ ...formData, quantity: Math.max(1, parseInt(e.target.value) || 1) })}
-                        className="w-20 bg-slate-900 border border-slate-700 rounded-xl px-2.5 py-1.5 text-sm font-bold text-center text-white"
+                        className="w-18 sm:w-20 bg-slate-900 border border-slate-700 rounded-xl px-2 py-1.5 text-base sm:text-sm font-bold text-center text-white"
                       />
                     </div>
                   </div>
                 </div>
 
-                {/* Quick quantity pill presets */}
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-[11px] text-slate-400">Escalas rápidas:</span>
-                  {[50, 100, 250, 500].map((qty) => (
-                    <button
-                      type="button"
-                      key={qty}
-                      onClick={() => setFormData({ ...formData, quantity: qty })}
-                      className={`px-2.5 py-1 rounded-lg text-xs font-bold cursor-pointer transition-colors ${
-                        formData.quantity === qty
-                          ? 'bg-fuchsia-600 text-white'
-                          : 'bg-slate-700 hover:bg-slate-600 text-slate-300'
-                      }`}
-                    >
-                      {qty} unds
-                    </button>
-                  ))}
+                {/* Quick quantity pill presets for mobile */}
+                <div className="mt-3">
+                  <span className="text-[10px] sm:text-[11px] text-slate-400 block mb-1.5 font-medium">Escalas rápidas con descuento:</span>
+                  <div className="grid grid-cols-4 gap-1.5 sm:flex sm:flex-wrap">
+                    {[50, 100, 250, 500].map((qty) => (
+                      <button
+                        type="button"
+                        key={qty}
+                        onClick={() => setFormData({ ...formData, quantity: qty })}
+                        className={`py-1.5 px-2 rounded-lg text-xs font-bold text-center cursor-pointer transition-colors active:scale-95 ${
+                          formData.quantity === qty
+                            ? 'bg-fuchsia-600 text-white shadow-xs'
+                            : 'bg-slate-700/80 hover:bg-slate-600 text-slate-300'
+                        }`}
+                      >
+                        {qty} unds
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
 

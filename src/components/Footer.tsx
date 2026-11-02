@@ -212,19 +212,35 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Payment methods */}
-        <div className="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Grupo Marbelyst. Todos los derechos reservados. Fabricación textil directa.</p>
+        {/* Bottom Bar: Copyright, Shipping & Payment methods */}
+        <div className="pt-8 border-t border-slate-800/80 flex flex-col lg:flex-row items-center justify-between gap-6 text-xs text-slate-500">
+          <p>© {new Date().getFullYear()} Grupo Marbelyst. Fabricación textil directa al mayor y detal. Hecho en Venezuela.</p>
 
-          <div className="flex items-center gap-4">
-            <span className="text-[11px] text-slate-400">Métodos aceptados:</span>
-            <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-[10px] font-bold text-slate-300">
-              Transferencia Bancaria
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <span className="text-[11px] text-slate-400 font-semibold">Despachos:</span>
+            <span className="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-[10px] font-black text-amber-400">
+              MRW
             </span>
-            <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-[10px] font-bold text-slate-300">
+            <span className="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-[10px] font-black text-blue-400">
+              ZOOM
+            </span>
+            <span className="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-[10px] font-black text-red-400">
+              TEALCA
+            </span>
+
+            <span className="text-slate-700">|</span>
+
+            <span className="text-[11px] text-slate-400 font-semibold">Pagos:</span>
+            <span className="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-[10px] font-bold text-slate-300">
               Pago Móvil
             </span>
-            <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-[10px] font-bold text-slate-300">
+            <span className="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-[10px] font-bold text-yellow-300">
+              Binance (USDT)
+            </span>
+            <span className="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-[10px] font-bold text-purple-300">
+              Zinli
+            </span>
+            <span className="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-[10px] font-bold text-emerald-400">
               Zelle / Divisas
             </span>
           </div>

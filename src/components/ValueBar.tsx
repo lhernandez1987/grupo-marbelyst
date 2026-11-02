@@ -5,46 +5,46 @@ export const ValueBar: React.FC = () => {
   const values = [
     {
       id: 'envios',
-      title: 'Envíos a Nivel Nacional',
-      subtitle: 'Entregas en todo el territorio',
-      description: 'Cobertura por empresas de encomiendas de confianza o entrega en nuestra planta de confección.',
+      title: 'Envíos por MRW y ZOOM',
+      subtitle: 'Lunes, Miércoles y Viernes',
+      description: 'Despachos a todas las agencias MRW, Zoom y Tealca en toda Venezuela con guía de rastreo inmediata.',
       icon: Truck,
       accentBorder: 'border-blue-500/30',
       iconBg: 'bg-blue-50 text-blue-600',
-      tag: '100% Cobertura',
+      tag: 'MRW & ZOOM',
       tagColor: 'bg-blue-100 text-blue-700'
     },
     {
       id: 'precios',
       title: 'Precios Directos de Fábrica',
-      subtitle: 'Cero intermediarios',
-      description: 'Comercialización directa desde el taller textil, maximizando el margen y la rentabilidad de tu negocio.',
+      subtitle: 'Mayor & Detal',
+      description: 'Sin intermediarios ni comisiones. Diseñado para marcas, tiendas y emprendedores de moda en Venezuela.',
       icon: Factory,
       accentBorder: 'border-fuchsia-500/30',
       iconBg: 'bg-fuchsia-50 text-fuchsia-600',
-      tag: 'Ahorro Garantizado',
+      tag: 'Sin Intermediarios',
       tagColor: 'bg-fuchsia-100 text-fuchsia-700'
     },
     {
       id: 'volumen',
       title: 'Descuentos por Volumen',
       subtitle: 'A partir de 50 piezas',
-      description: 'Tarifas escalonadas al mayor en 50, 100, 500 y más de 1.000 unidades para corporativos y marcas.',
+      description: 'Tarifas especiales mayoristas desde 50 unidades y escalas preferenciales para lotes de 100, 250 y 500+ prendas.',
       icon: Percent,
       accentBorder: 'border-amber-500/30',
       iconBg: 'bg-amber-50 text-amber-600',
-      tag: 'Escala Mayorista',
+      tag: '+50 Unidades',
       tagColor: 'bg-amber-100 text-amber-800'
     },
     {
       id: 'calidad',
       title: 'Calidad Garantizada',
-      subtitle: 'Control punto por punto',
-      description: 'Tejidos de hilatura peinada, costuras reforzadas con remate overlock y tintas con fijación certificada.',
+      subtitle: 'Telas & Estampado Premium',
+      description: 'Algodón peinado 20/1, piqué 220g, Dry-Fit microfibra y tintas que no se caen ni pierden color con el lavado.',
       icon: ShieldCheck,
       accentBorder: 'border-rose-500/30',
       iconBg: 'bg-rose-50 text-rose-600',
-      tag: 'Inspección Textil',
+      tag: 'Garantía Textil',
       tagColor: 'bg-rose-100 text-rose-700'
     }
   ];
