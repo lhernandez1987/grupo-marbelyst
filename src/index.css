@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+/* Custom accent utilities matching Marbelyst palette */
+.accent-gradient-magenta-red {
+  background: linear-gradient(135deg, #D946EF 0%, #EF4444 100%);
+}
+
+.accent-gradient-blue-yellow {
+  background: linear-gradient(135deg, #2563EB 0%, #EAB308 100%);
+}
+
+.accent-gradient-brand {
+  background: linear-gradient(135deg, #2563EB 0%, #D946EF 50%, #EF4444 100%);
+}
+
+.text-gradient-brand {
+  background: linear-gradient(135deg, #2563EB 0%, #D946EF 50%, #EF4444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Grupo Marbelyst - Tienda Textil Directa",
+  "description": "Fabricación textil al mayor y detal: Sublimación, serigrafía industrial, bordados y confección corporativa con precios directos de fábrica.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
